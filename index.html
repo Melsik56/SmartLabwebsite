@@ -1,0 +1,599 @@
+<html lang="hy"><head>
+
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+
+<link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+
+
+  <title> Smart Lab</title>
+  
+  
+  
+  
+<style>
+*, * ::before, * ::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Lato, sans-serif;
+}
+:root{
+  --hover-prim: #317c07;
+  --sec-color: black;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+ul, ol{
+  list-style: none;
+}
+
+html{
+  font-size: 10px;
+  box-sizing: border-box;
+  min-height: 100%;
+  width: 100%;
+  font-family: Lato, sans-serif;
+  letter-spacing: .1rem;
+  overflow: visible;
+}
+body{
+  min-height: 100%;
+  width: 100%;
+}
+
+.heading{
+  width: 100%;
+  height: 15vh;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 60% 1fr;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  width: 87%;
+  height: 100%;
+  margin: 0 auto;
+}
+.flex-row-container{
+  display: flex;
+  flex-flow: row;
+  
+}
+.nav-article-container{
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-icon{
+  width: 2rem;
+  height: 2rem;
+  fill: var(--sec-color);
+  transition: fill .3s;
+}
+.social .navbar-icon{
+  margin: 1.5rem;
+}
+.social .navbar-icon:hover{
+ fill: #ff0000; 
+}
+.nav-menu{
+  font-size: 1.5rem;
+  color: #317c07;
+  gap: 4rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.nav-menu a{
+  transition: color .3s;
+}
+.nav-menu a:hover{
+  color: #317c07;
+}
+
+.searchbar input{
+  vertical-align: middle;
+  background: #317c07;
+  border: none;
+  padding: .25rem;
+  border-radius: 3px;
+  max-width: 20rem;
+}
+.searchbar input:focus{
+  outline-color: var(--hover-prim);
+}
+.searchbar .navbar-icon{
+  vertical-align: middle;
+}
+
+.searchbar label{
+  min-width: 10rem;
+}
+
+
+.hero{
+  width: 100%;
+  height: 100vh;
+  background: url(smart\ lab.png) center/cover no-repeat;
+  position: relative;
+  z-index: -1;
+  display:flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.hero::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0, .3);
+  z-index: 0;
+}
+.hero-logo{
+  width: 40rem;
+  filter: brightness(100%)
+}
+.hero-heading{
+  font-size: 3.5rem;
+  z-index: 1;
+  margin: 3rem 0  1rem;
+  text-align:center;
+}
+.hero-subheading{
+    z-index: 1;
+  font-size: 2.5rem;
+  text-align:center;
+  opacity: .9;
+}
+
+
+.intro{
+  height: 60vh;
+  padding: 5rem 0;
+  background: linear-gradient(to right, #e9c920 35%, #e9c920 35%)
+}
+.intro-container{
+  height: 100%;
+  justify-content: space-between;
+}
+.intro-text{
+  width: 48%;
+}
+
+.intro-img{
+  background: url(smart\ lab.png) center/cover no-repeat;
+  width: 48%;
+}
+.intro-text div{
+  vertical-align: super;
+}
+.inline-deco-div{
+  border: 1px solid var(--hover-prim);
+  display:inline-block;
+  width: 3rem;
+  margin: 0 .5rem;
+}
+.section-subheading{
+  display: inline-block;
+  font-size: 2rem;
+  color: var(--hover-prim);
+  font-weight:bold;
+}
+.section-title{
+  font-size: 4.5rem;
+  margin: 1vh 0 3vh;
+}
+.section-text{
+  font-size: 1.9rem;
+  margin: 4% 0; 
+  letter-spacing: .2rem;
+  line-height: 2.8rem;
+}
+
+.gallery-section{
+  background: #e9c920;
+
+}
+.gallery-text > div{
+  vertical-align: super;
+}
+.gallery-section .container{
+  display:flex;
+  flex-flow: column;
+}
+.gallery{
+  width: 100%;
+  flex-grow:1;
+  justify-content:space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100%;
+
+}
+.gallery-img{
+  height: 100%;
+  filter: brightness(80%);
+  min-width:150px;
+}
+.gallery-sm{
+  width: 22%;
+}
+.gallery-bg{
+  width: 27%
+}
+
+#gallery-img-1{
+  background: url(lolik-jermoci-380_600x600.jpg) center/cover;
+}
+#gallery-img-2{
+  background: url(varung-770x510.jpg) center/cover;
+}
+#gallery-img-3{
+  background: url(beans.jpg) center/cover;
+}
+#gallery-img-4{
+  background: url(2.jpg) center/cover;
+}
+.cursos-section{
+  background: #20e4e9;
+}
+.cursos-section .container{
+  justify-content: space-between;
+}
+.cursos-gallery{
+  height:100%;
+  width: 48%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.cursos-img{
+  width:99%;
+  height: 99%;
+}
+#cursos-img-1{
+  background: url(images.jpg ) right/cover;
+}
+#cursos-img-2{
+  background: url(images\ \(1\).jpg) center/cover;
+}
+#cursos-img-3{
+  background: url(images\ \(2\).jpg) center/cover;
+}
+#cursos-img-4{
+  background: url(images\ \(3\).jpg) center/cover;
+}
+.cursos-section .intro-text .section-title, .cursos-section .intro-text .section-text{
+  color: white;
+}
+.btn{
+  display: inline-block;
+  color: #ff0000;
+  background-color: #ff0000;
+  padding: 1.3rem;
+  font-size: 1.5rem;
+  text-align:center;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: all .3s;
+}
+.btn:hover{
+  background-color: var(--hover-prim);
+}
+.contact-section{
+  height: 35vh;
+  background: var(--hover-prim);
+  text-align: center;
+  border-bottom: 10px solid white;
+  border-top: 10px solid white;
+
+}
+.contact-section .container{
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+.contact-section p{
+  color: white;
+}
+.contact-section h2{
+  color: white;
+}
+.contat-social{
+  justify-content:center;
+}
+.contact-icon{
+  fill: black;
+  width: 7rem;
+  height: 7rem;
+  margin: 0 2rem;
+}
+.contact-icon:hover{
+  fill: var(--hover-prim);
+  background-color: white;
+  padding: 1rem;
+}
+.footer-section{
+  color: white;
+  width: 100%;
+  background: url(ki.jpg) center/cover no-repeat;
+  position: relative;
+  z-index: -1;
+  background-attachment: fixed;
+}
+.footer-section:before{
+    content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0, .3);
+  z-index: 0;
+  top: 0;
+  left: 0;
+}
+.logo-text-container, .footer-section ul,.footer-section img{
+  z-index: 1;
+}
+.footer-container{
+  justify-content: space-between;
+  align-items: center;
+  background:#ff0000
+}
+.logo-text-container{
+  display: flex;
+  flex-flow: column;
+  font-size: 1.3rem;
+  max-width: 21rem;
+  gap: 1rem;
+}
+.footer-container ul{
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  height: 50%;
+}
+.footer-container h3{
+  font-size: 1.8rem;
+  margin-bottom: .5rem;
+  color: var(--hover-prim);
+}
+.footer-container li{
+  font-size: 1.5rem;
+}
+.footer-logo{
+  filter: brightness(100%);
+  width: 20rem;
+}
+.footer-map{
+  width: 35rem;
+  height: 25rem;
+  border: solid #ff0000 1px;
+}
+@media all and (max-width: 850px){
+   .grid{
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+    
+  }
+  .social{
+    order: 0;
+  }
+  .searchbar{
+    display: none;
+  }
+  .intro{
+   height: fit-content;
+  }
+  .intro-container, .footer-container{
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-container{
+    gap: 1rem;
+  }
+  .intro-container > *{
+    width: 100%;
+    min-height: 45rem;
+  }
+  .gallery > *{
+    min-height: 30rem;
+    width: 100%;
+  }
+  .cursos-gallery{
+    order: 1;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+@media all and (max-width: 500px){
+  html{
+    font-size: .55rem;
+  }
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no">
+  
+<heading class="heading">
+  
+  <div class="container grid">
+    
+    <div class="flex-row-container nav-article-container social">
+      <svg class="navbar-icon" viewBox="0 0 448 512" width="100" title="font">
+  <path d="M432 416h-23.41L277.88 53.69A32 32 0 0 0 247.58 32h-47.16a32 32 0 0 0-30.3 21.69L39.41 416H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-19.58l23.3-64h152.56l23.3 64H304a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM176.85 272L224 142.51 271.15 272z"></path>
+</svg>
+      <svg class="navbar-icon" viewBox="0 0 384 512" width="100" title="bold">
+  <path d="M333.49 238a122 122 0 0 0 27-65.21C367.87 96.49 308 32 233.42 32H34a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h31.87v288H34a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h209.32c70.8 0 134.14-51.75 141-122.4 4.74-48.45-16.39-92.06-50.83-119.6zM145.66 112h87.76a48 48 0 0 1 0 96h-87.76zm87.76 288h-87.76V288h87.76a56 56 0 0 1 0 112z"></path>
+</svg>
+    </div>
+    
+    <div class="flex-row-container nav-article-container nav-menu">
+      <a href="#about">Մասին</a>
+      <a href="#events">ԻՐԱԴԱՐՁՈՒԹՅՈՒՆՆԵՐ</a>
+      <a href="#courses">ԴԱՍԸՆԹԱՑՆԵՐ</a>
+      <a href="contact.html">կապ</a>
+      <a href="#">ԼՈՐԵՄ</a>
+    </div>
+    
+    <div class="flex-row-container nav-article-container searchbar">
+      <label for="searchbar">
+        <svg class="navbar-icon" viewBox="0 0 512 512" width="100" title="search">
+  <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+</svg>
+        <input id="searchbar" type="text" placeholder="Search...">
+      </label>
+    </div>
+    
+  </div>
+  
+</heading>
+  
+  <section class="hero">
+    <img class="hero-logo" src="smart lab.png" alt="">
+    <h1 class="hero-heading"> Smart Lab </h1>
+    <p class="hero-subheading">նախագիծը պատրաստվել է Մուսալեռի ֆրանց Վերֆելի անվան միջնակարգ դպրոցի Արմաթ ինժիներական լաբոարատորիայի սաների կողմից </p>
+    
+  </section>
+  <section class="intro" id="about">
+    <div class="container flex-row-container intro-container">
+      <div class="intro-text">
+        <div class="inline-deco-div"></div>
+        <p class="section-subheading"> Smart Lab
+</p>
+        <h2 class="section-title">Հայաստան <br>
+Արմավիր</h2>
+        <p class="section-text"> Ընդհանուր Հայաստանում կա 900 ջերմոց </p>
+        <p class="section-text">իսկ Արմավիր Մրզում կա 60</p>
+        <p class="section-text">Մուսալեռում կա 10 ջերմոց</p>
+        <p class="section-text"> Մեր Մրցակիցներն են Խելացի ջերմոցը և Smart Housse </p>
+      </div>
+      <div class="intro-img"> </div>
+    </div>
+    
+  </section>
+  
+  <section class="intro gallery-section" id="events"> 
+    <div class="container flex-column-container">
+      <div class="gallery-text">
+        <div class="inline-deco-div"></div>
+          <p class="section-subheading"> Պատկերասրահ </p>
+      </div>
+      
+          <h2 class="section-title">  Բանջարեղեն </h2>
+      <div class="flex-row-container gallery "> 
+        <div id="gallery-img-1" class="gallery-img gallery-sm"></div>
+        <div id="gallery-img-2" class="gallery-img gallery-bg"></div>
+        <div id="gallery-img-3" class="gallery-img gallery-sm"></div>
+        <div id="gallery-img-4" class="gallery-img gallery-bg"></div>
+      </div>
+     </div>
+  </section>
+  
+  <section class="intro cursos-section" id="courses"> 
+    <div class="container flex-row-container intro-container">
+      <div class="cursos-gallery grid">
+        <div class="cursos-img" id="cursos-img-1"></div>
+        <div class="cursos-img" id="cursos-img-2"></div>
+        <div class="cursos-img" id="cursos-img-3"></div>
+        <div class="cursos-img" id="cursos-img-4"></div>
+        
+      </div>
+      <div class="intro-text">
+        <div class="inline-deco-div"></div>
+        <p class="section-subheading" >   լոլիկի նորմալ աճելու համար միջինում  պետք է 100-ից 200լ ջուր,
+          իսկ ջերմաստիճանը հարկավոր է լինի 28-ից 30 աստիճան 
+
+</p>
+<p class="section-subheading" >   լոբին նորմալ աճելու համար միջինում պետք է 100-ից 200լ ջուր
+  իսկ ջերմաստիճանը պետաքա լինի 28-ից 30 աստիճան 
+</p>
+<p class="section-subheading" >   վարունգը նորմալ Աճելու համար միջինում պետք է 100-ից 200լ ջուր
+  իսկ ջերմաստիճանը պետաքա լինի 28-ից 30 աստիճան 
+</p>
+<p class="section-subheading" >   գազարը նորմալ Աճելու համար միջինում պետքա 100-ից 200լ ջուր
+  իսկ ջերմաստիճանը պետաքա լինի 28-ից 30 աստիճան 
+</p>
+        <h2 class="section-title"> լոլիկ, Վարունգ, լոբի, գազար <br>
+          <p class="section-subheading"> 
+          </p>
+</h2>
+        <p class="section-text"></p>
+
+        <a href="#" class="btn">ավելին մեր Մասին</a>
+      </div>
+    </div>
+  </section>
+  
+  <section id="contact" class="intro contact-section ">
+    <div class="container flex-row-container">
+    <div>
+      <p class="section-subheading"> 
+  </p>
+    <h2 class="section-title">  </h2>
+    </div>
+    <div class="flex-row-container contat-social">
+      <svg class="contact-icon" viewBox="0 0 448 512" width="100" title="font">
+  <path d="M432 416h-23.41L277.88 53.69A32 32 0 0 0 247.58 32h-47.16a32 32 0 0 0-30.3 21.69L39.41 416H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-19.58l23.3-64h152.56l23.3 64H304a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM176.85 272L224 142.51 271.15 272z"></path>
+</svg>
+      <svg class="contact-icon" viewBox="0 0 384 512" width="100" title="bold">
+  <path d="M333.49 238a122 122 0 0 0 27-65.21C367.87 96.49 308 32 233.42 32H34a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h31.87v288H34a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h209.32c70.8 0 134.14-51.75 141-122.4 4.74-48.45-16.39-92.06-50.83-119.6zM145.66 112h87.76a48 48 0 0 1 0 96h-87.76zm87.76 288h-87.76V288h87.76a56 56 0 0 1 0 112z"></path>
+</svg>
+    </div>
+    </div>
+  </section>
+  
+  <footer class="intro footer-section">
+    <div class="container flex-row-container footer-container">
+      <div class="logo-text-container">
+       
+        <address>
+        </address>
+      </div>
+    </style>
+  </button>
+<footer>
+	
+						<li><a href="https.instagram"><i class="fa-brands fa-instagram"></i></a></li>
+						<li><a href="https.twitch"><i class="fa-brands fa-twitch"></i></a></li>
+						<li><a href="https.twitter"><i class="fa-brands fa-twitter"></i></a></li>
+						<li><a href="https.fb"></a><i class="fa-brands fa-facebook"></i></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+</body>
+</html>
